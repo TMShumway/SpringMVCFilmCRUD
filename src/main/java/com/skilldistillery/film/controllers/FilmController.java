@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.film.database.DatabaseAccessorObject;
 import com.skilldistillery.film.entities.Film;
@@ -38,11 +39,26 @@ public class FilmController {
 	public ModelAndView getFilmDetails(String searchByKeyword) throws SQLException {
 		ModelAndView mv = new ModelAndView();
 		List<Film> films = filmDAO.findFilmsByKeyword(searchByKeyword);
+		System.out.println(films.get(0));
 		mv.addObject("films", films);
 		mv.setViewName("WEB-INF/filmResults.jsp");
 		return mv;
 	}
 	
-	
+	@RequestMapping(path = "createFilm.do", method = RequestMethod.POST)
+	public ModelAndView createFilm(Film film, RedirectAttributes redir) {
+		Film test = filmDAO.createFilm(film);
+		ModelAndView mv = new ModelAndView();
+		redir.addFlashAttribute("film", test);
+		mv.setViewName("redirect:filmCreated.do");
+		return mv;
+	}
+
+	@RequestMapping(path = "filmCreated.do", method = RequestMethod.GET)
+	public ModelAndView filmCreated() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("WEB-INF/filmCreated.jsp");
+		return mv;
+	}
 	
 }
