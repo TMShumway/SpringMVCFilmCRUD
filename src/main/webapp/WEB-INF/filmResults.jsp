@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="CSS/style.css">
 <title>Insert title here</title>
 </head>
 <body>
@@ -27,7 +28,7 @@
 						<td>${s.title}</td>
 						<td style="word-wrap: break-word" width=200px;>${s.description}</td>
 						<td>
-						<c:forEach var="actor" items="${films.actorList}">
+						<c:forEach var="actor" items="${s.actorList}">
 						${actor.firstName} &nbsp ${actor.lastName}<br>
 						</c:forEach>
 						</td>

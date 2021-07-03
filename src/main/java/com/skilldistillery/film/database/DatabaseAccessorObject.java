@@ -144,14 +144,12 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
 			conn.setAutoCommit(false); // START TRANSACTION
-			String sql = "INSERT INTO film (title, language_id, rental_duration, rental_rate, replacement_cost) "
-					+ " VALUES (?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO film (title, language_id, description) "
+					+ " VALUES (?, ?, ?)";
 			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, film.getTitle());
 			stmt.setInt(2, film.getLanguageId());
-			stmt.setInt(3, film.getRental_duration());
-			stmt.setDouble(4, film.getRentalRate());
-			stmt.setDouble(5, film.getReplacementCost());
+			stmt.setString(3, film.getDescription());
 			int updateCount = stmt.executeUpdate();
 			if (updateCount == 1) {
 				ResultSet keys = stmt.getGeneratedKeys();
