@@ -52,19 +52,10 @@ public class FilmController {
 	
 	@RequestMapping(path = "createFilm.do", method = RequestMethod.POST)
 	public ModelAndView createFilm(Film film, RedirectAttributes redir) {
-		Film test = null;
-		ModelAndView mv = null;
-		try {
-			test = filmDAO.createFilm(film);
-			mv = new ModelAndView();
-			redir.addFlashAttribute("film", test);
-			mv.setViewName("redirect:filmCreated.do");
-		} catch (SQLException e) {		
-			e.printStackTrace();
-			mv = new ModelAndView();
-			redir.addFlashAttribute("film", test);
-			mv.setViewName("redirect:filmCreated.do");			
-		}
+		Film test = filmDAO.createFilm(film);
+		ModelAndView mv = new ModelAndView();
+		redir.addFlashAttribute("film", test);
+		mv.setViewName("redirect:filmCreated.do");
 		return mv;
 	}
 

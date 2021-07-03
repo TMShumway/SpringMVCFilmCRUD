@@ -17,7 +17,7 @@
 			<option value=1>English</option>
 			<option value=2>Italian</option>
 			<option value=3>Japanese</option>
-			<option value=4>Mandarin</option>
+			<option value="Four">Mandarin</option>
 			<option value=5>French</option>
 			<option value=6>German</option>
 		</select><br>
