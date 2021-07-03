@@ -17,6 +17,8 @@ public class Film {
 	private String specialFeatures;
 	private String lang;
 	private List<Actor> actorList;
+	
+	public Film() {}
 
 	public Film(int id, String title, String description, Integer year, int languageId, int rental_duration,
 			double rentalRate, Integer length, double replacementCost, String rating, String specialFeatures,
