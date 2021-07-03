@@ -1,5 +1,6 @@
 package com.skilldistillery.film.controllers;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,9 +35,9 @@ public class FilmController {
 	}
 
 	@RequestMapping(path = "filmDetails.do", params = "searchByKeyword", method = RequestMethod.GET)
-	public ModelAndView getFilmDetails(String searchByKeyword) {
+	public ModelAndView getFilmDetails(String searchByKeyword) throws SQLException {
 		ModelAndView mv = new ModelAndView();
-		List<Film> films = filmDAO.findFilmByKeyword(searchByKeyword);
+		List<Film> films = filmDAO.findFilmsByKeyword(searchByKeyword);
 		mv.addObject(films);
 		mv.setViewName("WEB-INF/filmResults.jsp");
 		return mv;
