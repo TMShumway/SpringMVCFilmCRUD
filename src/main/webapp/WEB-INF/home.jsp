@@ -15,7 +15,7 @@
 		<input type="text" name="filmId">
 		<input type="submit" value="Submit">
 	</form>
-	<form action="">
+	<form action="filmDetails.do" method="get">
 		<label for="searchByKeyword">Search by Keyword:</label> 
 		<input type="text" name="searchByKeyword">
 		<input type="submit" value="Submit">

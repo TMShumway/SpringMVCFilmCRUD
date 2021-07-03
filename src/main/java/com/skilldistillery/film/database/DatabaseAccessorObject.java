@@ -7,9 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
@@ -119,49 +117,25 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	}
 
 	@Override
-	public Map<Integer, Film> findFilmByKeyword(String keyword) {
-		Film film;
-//		Actor actor;
-		Map<Integer, Film> filmList = new HashMap<>();
-		List<Actor> actorList = null;
-		Connection conn = null;
-		try {
-			conn = DriverManager.getConnection(URL, user, pass);
-			String sql = "Select DISTINCT*\n" + "FROM film\n" + "JOIN language\n"
-					+ "ON film.language_id = language.id\n" + "join film_actor\n" + "on film.id = film_actor.film_id\n"
-					+ "join actor\n" + "on film_actor.actor_id = actor.id\n"
-					+ "WHERE film.title like ? OR film.description\n" + "LIKE ?";
-			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setString(1, "%" + keyword + "%");
-			stmt.setString(2, "%" + keyword + "%");
-			ResultSet rs = stmt.executeQuery();
-			while (rs.next()) {
-				int filmIds = rs.getInt("film.id");
-				String title = rs.getString("film.title");
-				String desc = rs.getString("film.description");
-				Integer releaseYear = rs.getInt("film.release_year");
-				int langId = rs.getInt("film.language_id");
-				int rentDur = rs.getInt("film.rental_duration");
-				double rate = rs.getDouble("film.rental_rate");
-				int length = rs.getInt("film.length");
-				double repCost = rs.getDouble("film.replacement_cost");
-				String rating = rs.getString("film.rating");
-				String features = rs.getString("film.special_features");
-				String name = rs.getString("language.name");
-				int actorId = rs.getInt("Actor.id");
-
-				actorList = findActorsByFilmId(filmIds);
-				film = new Film(filmIds, title, desc, releaseYear, langId, rentDur, rate, length, repCost, rating,
-						features, actorList, name);
-				filmList.put(film.getId(), film);
-			}
-			rs.close();
-			stmt.close();
-			conn.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
+	public List<Film> findFilmsByKeyword(String keyword) throws SQLException {
+		List<Film> filmsByKeyword = new ArrayList<>();
+		Connection conn = DriverManager.getConnection(URL, user, pass);
+		String sql = "SELECT * " +
+				     "FROM film " + 
+				     "WHERE film.title LIKE ?" +
+				     "OR film.description LIKE ?";
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		stmt.setString(1, "%" + keyword + "%");
+		stmt.setString(2, "%" + keyword + "%");
+		ResultSet rs = stmt.executeQuery();
+//		System.out.println("Executing SQL Query -> " + sql + "\n");
+		while (rs.next()) {
+			filmsByKeyword.add(findFilmById(rs.getInt(1)));
 		}
-		return filmList;
+		rs.close();
+		stmt.close();
+		conn.close();
+		return filmsByKeyword;
 	}
 
 	@Override

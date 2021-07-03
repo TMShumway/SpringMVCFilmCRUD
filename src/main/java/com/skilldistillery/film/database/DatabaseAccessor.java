@@ -1,5 +1,6 @@
 package com.skilldistillery.film.database;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -10,7 +11,7 @@ public interface DatabaseAccessor {
   public Film findFilmById(int filmId);
   public Actor findActorById(int actorId);
   public List<Actor> findActorsByFilmId(int filmId);
-  public Map<Integer, Film> findFilmByKeyword(String keyword);
+  public List<Film> findFilmsByKeyword(String keyword) throws SQLException;
   public Film createFilm(Film film);
   public void deleteFilm(Film film);
   public Film updateFilm(Film film);
