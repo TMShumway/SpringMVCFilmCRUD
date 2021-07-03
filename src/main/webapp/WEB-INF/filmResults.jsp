@@ -20,6 +20,7 @@
 					<th>Description</th>
 					<th>Actors</th>
 					<th>Special Features</th>
+					<th>Modify</th>
 				</tr>
 
 				<c:forEach var="s" items="${films}">
@@ -33,6 +34,9 @@
 						</c:forEach>
 						</td>
 						<td>${s.specialFeatures}</td>
+						<td><form action="delete.do"><input type="submit" value="Delete"></form><br>
+						<form action="edit.do"><input type="submit" value="Edit"></form></td>
+						
 					</tr>
 				</c:forEach>
 			</table>
