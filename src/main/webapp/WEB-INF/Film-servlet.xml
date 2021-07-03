@@ -17,4 +17,5 @@
 	<!-- DAO HERE! -->
 	<!-- Add any Spring beans we would like to use here using bean declarations/tags -->
 	<bean id="dao" class="com.skilldistillery.film.database.DatabaseAccessorObject"></bean>
+	<bean id="film" class="com.skilldistillery.film.entities.Film"></bean>
 </beans>

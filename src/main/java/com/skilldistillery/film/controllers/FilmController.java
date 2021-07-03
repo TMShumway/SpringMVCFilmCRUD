@@ -24,6 +24,11 @@ public class FilmController {
 	public String index() {
 		return "WEB-INF/home.jsp";
 	}
+
+	@RequestMapping(path = {"/","createFilmForm.do"})
+	public String createFilmForm() {
+		return "WEB-INF/createFilm.jsp";
+	}
 	
 	@RequestMapping(path = "filmDetails.do", params = "filmId", method = RequestMethod.GET)
 	public ModelAndView getFilmDetails(int filmId) {
