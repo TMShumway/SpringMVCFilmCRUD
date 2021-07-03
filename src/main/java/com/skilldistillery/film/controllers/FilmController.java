@@ -30,6 +30,16 @@ public class FilmController {
 		return "WEB-INF/createFilm.jsp";
 	}
 	
+	@RequestMapping(path = {"/","edit.do"})
+	public String edit() {
+		return "WEB-INF/edit.jsp";
+	}
+
+	@RequestMapping(path = {"/","delete.do"})
+	public String delete() {
+		return "WEB-INF/delete.jsp";
+	}
+	
 	@RequestMapping(path = "filmDetails.do", params = "filmId", method = RequestMethod.GET)
 	public ModelAndView getFilmDetails(int filmId) {
 		ModelAndView mv = new ModelAndView();
