@@ -15,4 +15,5 @@
 	<mvc:annotation-driven></mvc:annotation-driven>
 
 	<!-- Add any Spring beans we would like to use here using bean declarations/tags -->
+	<bean id = "dao" class = ""></bean>
 </beans>
