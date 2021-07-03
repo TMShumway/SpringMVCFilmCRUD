@@ -38,7 +38,6 @@ public class FilmController {
 	public ModelAndView getFilmDetails(String searchByKeyword) throws SQLException {
 		ModelAndView mv = new ModelAndView();
 		List<Film> films = filmDAO.findFilmsByKeyword(searchByKeyword);
-		System.out.println(films.get(0));
 		mv.addObject("films", films);
 		mv.setViewName("WEB-INF/filmResults.jsp");
 		return mv;
