@@ -20,11 +20,7 @@
 		<input type="text" name="searchByKeyword">
 		<input type="submit" value="Submit">
 	</form>
-	<!-- <form action="">
-		<label for="deleteFilm">Search by Keyword:</label> 
-		<input type="text" name="deleteFilm">
-		<input type="submit" value="Submit">
-	</form> -->
+	<a href="WEB-INF/createFilm.jsp">Create Film</a>
 
 </body>
 </html>
