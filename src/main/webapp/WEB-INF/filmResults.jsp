@@ -15,14 +15,13 @@
 			<th>ID</th>
 			<th>Title</th>
 			<th>Description</th>
-			
 		</tr>
 
 		<c:forEach var="s" items="${films}">
 			<tr>
 				<td>${s.id}</td>
 				<td>${s.title}</td>
-				<td style="word-wrap: break-word">${s.description}</td>
+				<td style="word-wrap: break-word" width=200px;>${s.description}</td>
 			</tr>
 		</c:forEach>
 	</table>

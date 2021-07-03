@@ -29,7 +29,7 @@ public class FilmController {
 		ModelAndView mv = new ModelAndView();
 		List<Film> films = new ArrayList<>();
 		films.add(filmDAO.findFilmById(filmId));
-		mv.addObject(films);
+		mv.addObject("films", films);
 		mv.setViewName("WEB-INF/filmResults.jsp");
 		return mv;
 	}
@@ -38,7 +38,8 @@ public class FilmController {
 	public ModelAndView getFilmDetails(String searchByKeyword) throws SQLException {
 		ModelAndView mv = new ModelAndView();
 		List<Film> films = filmDAO.findFilmsByKeyword(searchByKeyword);
-		mv.addObject(films);
+		System.out.println(films.get(0));
+		mv.addObject("films", films);
 		mv.setViewName("WEB-INF/filmResults.jsp");
 		return mv;
 	}
