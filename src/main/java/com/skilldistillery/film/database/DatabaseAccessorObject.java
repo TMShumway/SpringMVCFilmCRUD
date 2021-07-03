@@ -120,7 +120,10 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	public List<Film> findFilmsByKeyword(String keyword) throws SQLException {
 		List<Film> filmsByKeyword = new ArrayList<>();
 		Connection conn = DriverManager.getConnection(URL, user, pass);
-		String sql = "SELECT * " + "FROM film " + "WHERE film.title LIKE ?" + "OR film.description LIKE ?";
+		String sql = "SELECT * " +
+				     "FROM film " + 
+				     "WHERE film.title LIKE ?" +
+				     "OR film.description LIKE ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setString(1, "%" + keyword + "%");
 		stmt.setString(2, "%" + keyword + "%");
@@ -136,30 +139,37 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	}
 
 	@Override
-	public Film createFilm(Film film) throws SQLException {
+	public Film createFilm(Film film) {
 		Connection conn = null;
-		conn = DriverManager.getConnection(URL, user, pass);
-		conn.setAutoCommit(false); // START TRANSACTION
-		String sql = "INSERT INTO film (title, language_id, description)" + " VALUES (?, ?, ?)";
-		PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-		stmt.setString(1, film.getTitle());
-		stmt.setInt(2, film.getLanguageId());
-		stmt.setString(3, film.getDescription());
-		int updateCount = stmt.executeUpdate();
-		if (updateCount == 1) {
-			ResultSet keys = stmt.getGeneratedKeys();
-			if (keys.next()) {
-				int newFilmId = keys.getInt(1);
-				film.setId(newFilmId);
+		try {
+			conn = DriverManager.getConnection(URL, user, pass);
+			conn.setAutoCommit(false); // START TRANSACTION
+			String sql = "INSERT INTO film (title, language_id, description)"
+					+ " VALUES (?, ?, ?)";
+			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			stmt.setString(1, film.getTitle());
+			stmt.setInt(2, film.getLanguageId());
+			stmt.setString(3, film.getDescription());
+			int updateCount = stmt.executeUpdate();
+			if (updateCount == 1) {
+				ResultSet keys = stmt.getGeneratedKeys();
+				if (keys.next()) {
+					int newFilmId = keys.getInt(1);
+					film.setId(newFilmId);
+				}
 			}
-		} else if (updateCount == 0) {
-			try {
-				conn.rollback();
-			} catch (SQLException sqle2) {
-				System.err.println("Error trying to rollback");
+			conn.commit(); // COMMIT TRANSACTION
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+				}
 			}
+			throw new RuntimeException("Error inserting film " + film);
 		}
-		conn.commit(); // COMMIT TRANSACTION
 		return film;
 	}
 

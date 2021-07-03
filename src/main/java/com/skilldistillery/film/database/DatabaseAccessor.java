@@ -15,5 +15,4 @@ public interface DatabaseAccessor {
   public Film createFilm(Film film) throws SQLException;
   public void deleteFilm(Film film);
   public Film updateFilm(Film film);
-  
 }
