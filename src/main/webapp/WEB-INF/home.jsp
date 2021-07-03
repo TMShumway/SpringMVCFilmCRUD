@@ -20,7 +20,7 @@
 		<input type="text" name="searchByKeyword">
 		<input type="submit" value="Submit">
 	</form>
-	<a href="WEB-INF/createFilm.jsp">Create Film</a>
+	<a href="createFilmForm.do">Create Film</a>
 
 </body>
 </html>
