@@ -174,7 +174,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	}
 
 	@Override
-	public void deleteFilm(Film film) {
+	public boolean deleteFilm(Film film) {
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
@@ -183,7 +183,12 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, film.getId());
 			int uc = stmt.executeUpdate();
-			conn.commit();
+			if (uc == 1) {
+				conn.commit();
+				return true;
+			} else {
+				return false;
+			}
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 			if (conn != null)
@@ -193,6 +198,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 					System.err.println("Error trying to rollback");
 				}
 		}
+		return false;
 	}
 
 	@Override
