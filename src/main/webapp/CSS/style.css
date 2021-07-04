@@ -4,4 +4,18 @@
 
 table, th, td {
 	border: 1px solid black;
+	
+}
+
+body {
+	margin: 5px;
+}
+
+table {
+	width: 100%;
+}
+
+.horizontal-center {
+	text-align: center;
+	margin: 5px;
 }

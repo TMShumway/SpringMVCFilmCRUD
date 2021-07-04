@@ -21,7 +21,7 @@
 					<th>Description</th>
 					<th>Actors</th>
 					<th>Special Features</th>
-					<th>Modify</th>
+					<th>Edit or Delete</th>
 				</tr>
 				<c:forEach var="s" items="${films}">
 					<tr>
@@ -44,10 +44,14 @@
 							<input type="hidden" name="id" value="${s.id}">
 							</form><br>
 						</td>
+						
 					</tr>
 				</c:forEach>
 			</table>
-			<a href="home.do">Home</a>
+			<form action="home.do" class="horizontal-center">
+			<input type="submit" value="Home">
+			</form>
+			<!-- <a href="home.do">Home</a> -->
 		</c:when>
 		<c:otherwise>
 			<h3>Film not found</h3>
