@@ -35,11 +35,11 @@
 						</td>
 						<td>${s.specialFeatures}</td>
 						<td>
-							<form action="delete.do">
+							<form action="delete.do" method="post">
 							<input type="submit" value="Delete">
 							<input type="hidden" name="id" value="${s.id}">
 							</form><br>
-							<form action="edit.do">
+							<form action="edit.do" method="post">
 							<input type="submit" value="Edit">
 							<input type="hidden" name="id" value="${s.id}">
 							</form><br>

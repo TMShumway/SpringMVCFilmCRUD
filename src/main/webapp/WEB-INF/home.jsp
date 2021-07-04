@@ -11,18 +11,21 @@
 <body>
 
 	<h1>Film Site</h1>
-
+<div class="box-card-container">
 	<form action="filmDetails.do" method="get">
 		<label for="searchByFilmId">Search by film ID:</label> 
 		<input type="text" name="filmId">
 		<input type="submit" value="Submit">
-	</form>
+	</form><br>
 	<form action="filmDetails.do" method="get">
 		<label for="searchByKeyword">Search by Keyword:</label> 
 		<input type="text" name="searchByKeyword">
 		<input type="submit" value="Submit">
+	</form><br>
+	<form action="createFilmForm.do">
+	<input type="submit" value="Create Film">
 	</form>
-	<a href="createFilmForm.do">Create Film</a>
+</div>
 
 </body>
 </html>

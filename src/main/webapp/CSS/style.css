@@ -9,6 +9,7 @@ table, th, td {
 
 body {
 	margin: 5px;
+	background-color: LightCyan;
 }
 
 table {
@@ -18,4 +19,13 @@ table {
 .horizontal-center {
 	text-align: center;
 	margin: 5px;
+}
+
+.box-card-container {
+	background-color: CornflowerBlue;
+	display: inline-block;
+	padding: 10px;
+	border-radius: 20px;
+	border: solid 1px CornflowerBlue;
+	box-shadow: 10px 5px 5px grey;
 }
