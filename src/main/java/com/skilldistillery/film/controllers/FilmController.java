@@ -32,8 +32,12 @@ public class FilmController {
 	}
 	
 	@RequestMapping(path = {"/","edit.do"})
-	public String edit() {
-		return "WEB-INF/edit.jsp";
+	public ModelAndView edit(int id) {
+		ModelAndView mv = new ModelAndView();
+		Film film = filmDAO.findFilmById(id);
+		mv.addObject("film", film);
+		mv.setViewName("WEB-INF/edit.jsp");
+		return mv;
 	}
 
 	@RequestMapping(path = {"/","delete.do"})
@@ -55,7 +59,6 @@ public class FilmController {
 	public ModelAndView getFilmDetails(String searchByKeyword) throws SQLException {
 		ModelAndView mv = new ModelAndView();
 		List<Film> films = filmDAO.findFilmsByKeyword(searchByKeyword);
-		System.out.println(films.get(0));
 		mv.addObject("films", films);
 		mv.setViewName("WEB-INF/filmResults.jsp");
 		return mv;
