@@ -60,5 +60,6 @@
 			<a href="home.do">Home</a>
 		</c:otherwise>
 	</c:choose>
+	
 </body>
 </html>
