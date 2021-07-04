@@ -220,8 +220,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			st.setDouble(8, film.getReplacementCost());
 			st.setString(9, film.getRating());
 			st.setString(10, film.getSpecialFeatures());
-			st.setString(11, film.getLang());
-			st.setInt(12, film.getId());
 			int uc = st.executeUpdate();
 			if (uc == 1) {
 				conn.commit();
