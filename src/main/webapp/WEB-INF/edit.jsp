@@ -10,15 +10,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h4>${film.id}</h4>
 <form action="editFilmDetails.do">
 <label for="filmTitle">Film Title: </label>
-<input type="text" name="title" value="${ }"><br>
+<input type="text" name="title" value="${film.title}"><br>
 <label for="filmDescription">Film Description: </label>
-<input type="text" name="description" value="${ }"><br>
+<input type="text" name="description" value="${film.description}"><br>
 <label for="filmYear">Film Year: </label>
-<input type="text" name="year" value="${ }"><br>
+<input type="text" name="year" value="${film.year}"><br>
 <label for="languageId">Language ID: </label>
-<select name="languageId" value="${ }">
+<select name="languageId" value="${film.languageId}">
 			<option value=1>English</option>
 			<option value=2>Italian</option>
 			<option value=3>Japanese</option>
@@ -27,15 +28,15 @@
 			<option value=6>German</option>
 </select><br>
 <label for="filmRentalDuration">Rental Duration: </label>
-<input type="text" name="rental_duration" value="${ }"><br>
+<input type="text" name="rental_duration" value="${film.rental_duration}"><br>
 <label for="filmRentalRate">Rental Rate: </label>
-<input type="text" name="rentalRate" value="${ }"><br>
+<input type="text" name="rentalRate" value="${film.rentalRate}"><br>
 <label for="filmLength">Film Length: </label>
-<input type="text" name="length" value="${ }"><br>
+<input type="text" name="length" value="${film.length}"><br>
 <label for="filmReplacementCost">Film Replacement Cost: </label>
-<input type="text" name="replacementCost" value="${ }"><br>
+<input type="text" name="replacementCost" value="${film.replacementCost}"><br>
 <label for="filmRating">Film Rating: </label>
-<select name="rating" value="${ }">
+<select name="rating" value="${film.rating}">
 			<option value="G">G</option>
 			<option value="PG">PG</option>
 			<option value="PG13">PG13</option>
@@ -43,12 +44,13 @@
 			<option value="NC17">NC17</option>
 		</select>
 <label for="filmSpecialFeatures">Film Special Features: </label>
-<select name="specialFeatures" value="${ }">
+<select name="specialFeatures" value="${film.specialFeatures}">
 			<option value="Trailers">Trailers</option>
 			<option value="Commentaries">Commentaries</option>
 			<option value="Deleted Scenes">Deleted Scenes</option>
 			<option value="Behind the Scenes">Behind the Scenes</option>
-		</select>
+		</select><br>
+		<input type="submit" value="Submit">
 </form>
 </body>
 </html>
