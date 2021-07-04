@@ -32,8 +32,12 @@ public class FilmController {
 	}
 	
 	@RequestMapping(path = {"/","edit.do"})
-	public String edit() {
-		return "WEB-INF/edit.jsp";
+	public ModelAndView edit(int id) {
+		ModelAndView mv = new ModelAndView();
+		Film film = filmDAO.findFilmById(id);
+		mv.addObject("film", film);
+		mv.setViewName("WEB-INF/edit.jsp");
+		return mv;
 	}
 
 	@RequestMapping(path = {"/","delete.do"})
