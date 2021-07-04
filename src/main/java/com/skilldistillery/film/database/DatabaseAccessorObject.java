@@ -222,9 +222,10 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			st.setString(10, film.getSpecialFeatures());
 			st.setInt(11, film.getId());
 			int uc = st.executeUpdate();
-			if (uc == 1) {
-				conn.commit();
-			}
+			System.out.println(uc);
+//			if (uc == 1) {
+//			}
+			conn.commit();
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 			if (conn != null) {

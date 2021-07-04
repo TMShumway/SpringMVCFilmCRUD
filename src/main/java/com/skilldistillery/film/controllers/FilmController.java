@@ -89,7 +89,9 @@ public class FilmController {
 	
 	@RequestMapping(path = "editFilmDetails.do", method = RequestMethod.POST)
 	public ModelAndView editFilmDetails(Film film, RedirectAttributes redir) {
+		System.out.println(film);
 		Film filmEdited = filmDAO.updateFilm(film);
+		System.out.println(filmEdited);
 		ModelAndView mv = new ModelAndView();
 		boolean filmEditedBool = filmEdited.getId() > 0 ? true : false;
 		redir.addFlashAttribute("wasFilmEdited", filmEditedBool);
