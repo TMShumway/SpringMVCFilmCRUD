@@ -220,8 +220,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			st.setDouble(8, film.getReplacementCost());
 			st.setString(9, film.getRating());
 			st.setString(10, film.getSpecialFeatures());
-			st.setString(11, film.getLang());
-			st.setInt(12, film.getId());
 			int uc = st.executeUpdate();
 			if (uc == 1) {
 				conn.commit();
@@ -239,4 +237,37 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		return film;
 	}
 
+	@Override
+	public Actor createActor(Actor actor) {
+		Connection conn = null;
+		try {
+			conn = DriverManager.getConnection(URL, user, pass);
+			conn.setAutoCommit(false); // START TRANSACTION
+			String sql = "INSERT INTO actor (first_name, last_name)"
+					+ " VALUES (?, ?)";
+			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			stmt.setString(1, actor.getFirstName());
+			stmt.setString(2, actor.getLastName());
+			int updateCount = stmt.executeUpdate();
+			if (updateCount == 1) {
+				ResultSet keys = stmt.getGeneratedKeys();
+				if (keys.next()) {
+					int newActorId = keys.getInt(1);
+					actor.setId(newActorId);
+				}
+			}
+			conn.commit(); // COMMIT TRANSACTION
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+				}
+			}
+			throw new RuntimeException("Error creating actor " + actor);
+		}
+		return actor;
+	}
 }

@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.film.database.DatabaseAccessorObject;
+import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
 
 @Controller
@@ -63,8 +64,12 @@ public class FilmController {
 	@RequestMapping(path = "createFilm.do", method = RequestMethod.POST)
 	public ModelAndView createFilm(Film film, RedirectAttributes redir) {
 		Film filmCreated = filmDAO.createFilm(film);
+		List<Actor> actors = new ArrayList<>();
+		actors.add(filmDAO.createActor(new Actor(0, "Hugh", "Hemsworth")));
+		actors.add(filmDAO.createActor(new Actor(0, "M. Film", "Tesatalot")));
+		filmCreated.setActorList(actors);
 		ModelAndView mv = new ModelAndView();
-		redir.addFlashAttribute("film", filmCreated);
+		redir.addFlashAttribute("wasfilmCreated", filmCreated);
 		mv.setViewName("redirect:filmCreated.do");
 		return mv;
 	}
@@ -72,7 +77,7 @@ public class FilmController {
 	@RequestMapping(path = "filmCreated.do", method = RequestMethod.GET)
 	public ModelAndView filmCreated() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("WEB-INF/filmCreated.jsp");
+		mv.setViewName("WEB-INF/delete.jsp");
 		return mv;
 	}
 	
@@ -80,7 +85,7 @@ public class FilmController {
 	public ModelAndView editFilmDetails(Film film, RedirectAttributes redir) {
 		Film filmEdited = filmDAO.updateFilm(film);
 		ModelAndView mv = new ModelAndView();
-		redir.addFlashAttribute("film", filmEdited);
+		redir.addFlashAttribute("wasfilmEdited", filmEdited);
 		mv.setViewName("redirect:filmEdited.do");
 		return mv;
 	}
@@ -88,7 +93,7 @@ public class FilmController {
 	@RequestMapping(path = "filmEdited.do", method = RequestMethod.GET)
 	public ModelAndView filmEdited() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("WEB-INF/FilmModifiedLandingPage");
+		mv.setViewName("WEB-INF/delete.jsp");
 		return mv;
 	}
 
@@ -96,7 +101,7 @@ public class FilmController {
 	public ModelAndView deleteFilmDetails(Film film, RedirectAttributes redir) {
 		boolean wasDeleted = filmDAO.deleteFilm(film);
 		ModelAndView mv = new ModelAndView();
-		redir.addFlashAttribute("wasDeleted", wasDeleted);
+		redir.addFlashAttribute("wasFilmDeleted", wasDeleted);
 		mv.setViewName("redirect:filmDeleted.do");
 		return mv;
 	}
@@ -104,7 +109,7 @@ public class FilmController {
 	@RequestMapping(path = "filmDeleted.do", method = RequestMethod.GET)
 	public ModelAndView filmDeleted() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("WEB-INF/FilmModifiedLandingPage");
+		mv.setViewName("WEB-INF/delete.jsp");
 		return mv;
 	}
 	
