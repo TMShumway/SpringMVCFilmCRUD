@@ -68,8 +68,9 @@ public class FilmController {
 		actors.add(filmDAO.createActor(new Actor(0, "Hugh", "Hemsworth")));
 		actors.add(filmDAO.createActor(new Actor(0, "M. Film", "Tesatalot")));
 		filmCreated.setActorList(actors);
+		boolean filmCreatedBool = filmCreated.getId() > 0 ? true : false;
 		ModelAndView mv = new ModelAndView();
-		redir.addFlashAttribute("wasfilmCreated", filmCreated);
+		redir.addFlashAttribute("wasfilmCreated", filmCreatedBool);
 		mv.setViewName("redirect:filmCreated.do");
 		return mv;
 	}
@@ -85,7 +86,8 @@ public class FilmController {
 	public ModelAndView editFilmDetails(Film film, RedirectAttributes redir) {
 		Film filmEdited = filmDAO.updateFilm(film);
 		ModelAndView mv = new ModelAndView();
-		redir.addFlashAttribute("wasfilmEdited", filmEdited);
+		boolean filmEditedBool = filmEdited.getId() > 0 ? true : false;
+		redir.addFlashAttribute("wasfilmEdited", filmEditedBool);
 		mv.setViewName("redirect:filmEdited.do");
 		return mv;
 	}
