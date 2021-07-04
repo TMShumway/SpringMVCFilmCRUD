@@ -71,6 +71,8 @@ public class FilmController {
 		boolean filmCreatedBool = filmCreated.getId() > 0 ? true : false;
 		ModelAndView mv = new ModelAndView();
 		redir.addFlashAttribute("wasFilmCreated", filmCreatedBool);
+		boolean createdFlag = true;
+		redir.addFlashAttribute("createdFlag", createdFlag);
 		mv.setViewName("redirect:filmCreated.do");
 		return mv;
 	}
@@ -88,6 +90,8 @@ public class FilmController {
 		ModelAndView mv = new ModelAndView();
 		boolean filmEditedBool = filmEdited.getId() > 0 ? true : false;
 		redir.addFlashAttribute("wasFilmEdited", filmEditedBool);
+		boolean editedFlag = true;
+		redir.addFlashAttribute("editedFlag", editedFlag);
 		mv.setViewName("redirect:filmEdited.do");
 		return mv;
 	}
@@ -104,6 +108,8 @@ public class FilmController {
 		boolean wasDeleted = filmDAO.deleteFilm(film);
 		ModelAndView mv = new ModelAndView();
 		redir.addFlashAttribute("wasFilmDeleted", wasDeleted);
+		boolean deletedFlag = true;
+		redir.addFlashAttribute("deletedFlag", deletedFlag);
 		mv.setViewName("redirect:filmDeleted.do");
 		return mv;
 	}
