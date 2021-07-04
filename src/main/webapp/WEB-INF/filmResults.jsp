@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="CSS/style.css">
 <title>Insert title here</title>
 </head>
@@ -22,7 +23,6 @@
 					<th>Special Features</th>
 					<th>Modify</th>
 				</tr>
-
 				<c:forEach var="s" items="${films}">
 					<tr>
 						<td>${s.id}</td>
@@ -34,9 +34,16 @@
 						</c:forEach>
 						</td>
 						<td>${s.specialFeatures}</td>
-						<td><form action="delete.do"><input type="submit" value="Delete"></form><br>
-						<form action="edit.do"><input type="submit" value="Edit"></form></td>
-						
+						<td>
+							<form action="delete.do">
+							<input type="submit" value="Delete">
+							<input type="hidden" name="id" value="${s.id}">
+							</form><br>
+							<form action="edit.do">
+							<input type="submit" value="Edit">
+							<input type="hidden" name="id" value="${s.id}">
+							</form><br>
+						</td>
 					</tr>
 				</c:forEach>
 			</table>
