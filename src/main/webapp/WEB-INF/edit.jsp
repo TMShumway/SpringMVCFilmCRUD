@@ -11,7 +11,7 @@
 </head>
 <body>
 <h4>${film.id}</h4>
-<form action="editFilmDetails.do">
+<form action="editFilmDetails.do" method = "POST">
 <label for="filmTitle">Film Title: </label>
 <input type="text" name="title" value="${film.title}"><br>
 <label for="filmDescription">Film Description: </label>
@@ -51,6 +51,8 @@
 			<option value="Behind the Scenes">Behind the Scenes</option>
 		</select><br>
 		<input type="submit" value="Submit">
+		<br>
+		<a href="home.do">Home</a>
 </form>
 </body>
 </html>
