@@ -14,6 +14,7 @@
 <body>
 	<c:choose>
 		<c:when test="${not empty films[0].id}">
+		<div class="box-card-container">
 			<table>
 				<tr>
 					<th>ID</th>
@@ -35,7 +36,7 @@
 						</td>
 						<td>${s.specialFeatures}</td>
 						<td>
-							<form action="delete.do" method="post">
+							<form action="deleteFilmDetails.do" method="post">
 							<input type="submit" value="Delete">
 							<input type="hidden" name="id" value="${s.id}">
 							</form><br>
@@ -48,6 +49,7 @@
 					</tr>
 				</c:forEach>
 			</table>
+			</div>
 			<form action="home.do" class="horizontal-center">
 			<input type="submit" value="Home">
 			</form>

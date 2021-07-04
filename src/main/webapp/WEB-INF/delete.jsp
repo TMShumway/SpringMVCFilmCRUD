@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,17 @@
 <title>Insert title here</title>
 </head>
 <body>
+<c:choose>
+<c:when test="${wasFilmDeleted}"><h2>Film Successfully Deleted!</h2></c:when>
+<c:when test="${wasFilmEdited}"><h2>Film Successfully Edited!</h2></c:when>
+<c:when test="${wasFilmCreated}"><h2>Film Successfully Created!</h2></c:when>
+<c:otherwise>
+<c:when test="${!wasFilmDeleted}"><h2>Problem with deleted Film!</h2></c:when>
+<c:when test="${!wasFilmEdited}"><h2>Problem with editing Film!</h2></c:when>
+<c:when test="${!wasFilmCreated}"><h2>Problem with creating Film!</h2></c:when>
+</c:otherwise>
+</c:choose>
+
 
 </body>
 </html>

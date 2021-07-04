@@ -25,7 +25,10 @@ table {
 	background-color: CornflowerBlue;
 	display: inline-block;
 	padding: 10px;
+	margin: 5px;
 	border-radius: 20px;
 	border: solid 1px CornflowerBlue;
 	box-shadow: 10px 5px 5px grey;
 }
+
+
