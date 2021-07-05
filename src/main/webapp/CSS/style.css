@@ -40,11 +40,12 @@ div.tab img {
 }
 
 .table-css {
+  padding:40px;
   width: 80%;
   background-color:#ffe34e;
   box-shadow: 40px 40px #cd04df, -40px -40px #42a8ff;
   margin:auto;
-  padding:40px;
+  margin-top:10%;
   
 }
 

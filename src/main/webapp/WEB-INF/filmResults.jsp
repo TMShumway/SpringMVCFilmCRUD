@@ -61,17 +61,28 @@
 					</tr>
 				</c:forEach>
 			</table>
-			</div>
 			<form action="home.do" class="horizontal-center">
 			<input type="submit" value="Home">
 			</form>
-			<!-- <a href="home.do">Home</a> -->
+			</div>
 		</c:when>
 		<c:otherwise>
-			<h3>Film not found</h3>
-			<form action="home.do" class="horizontal-center">
+			<div class="row vertical-center-element">
+    <div class="">
+    </div>
+    <div>
+    <div class="tab text-center">
+	<h2>Film not found!</h2>
+	<form action="home.do" class="horizontal-center">
+	<img alt="success" src="pictures/error.png"><br>
+	<br>
 			<input type="submit" value="Home">
 			</form>
+    </div>
+    </div>
+    <div class="">
+    </div>
+    </div>
 		</c:otherwise>
 	</c:choose>
 	

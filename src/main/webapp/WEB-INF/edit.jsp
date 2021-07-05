@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="table-css">
 <h4>${film.id}</h4>
 <form action="editFilmDetails.do" method="POST">
 <input type="hidden" name="id" value="${film.id}">
@@ -43,7 +44,7 @@
 			<option value="PG13">PG13</option>
 			<option value="R">R</option>
 			<option value="NC17">NC17</option>
-		</select>
+		</select><br>
 <label for="filmSpecialFeatures">Film Special Features: </label>
 <select name="specialFeatures" value="${film.specialFeatures}">
 			<option value="Trailers">Trailers</option>
@@ -53,7 +54,10 @@
 		</select><br>
 		<input type="submit" value="Submit">
 		<br>
-		<a href="home.do">Home</a>
 </form>
+<form action="home.do">
+		<input type="submit" value="Home">
+</form>
+</div>
 </body>
 </html>
