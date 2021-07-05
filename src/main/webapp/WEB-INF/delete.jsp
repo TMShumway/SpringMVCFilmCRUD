@@ -12,7 +12,7 @@
 <body>
 <c:if test="${deletedFlag}">
 <c:choose>
-<c:when test="${wasFilmDeleted = true}">
+<c:when test="${wasFilmDeleted}">
 <div class="row vertical-center-element">
     <div class="">
     </div>
@@ -37,7 +37,7 @@
     <div>
     	<div class="tab text-center">
 			<h2>Could not delete!</h2>
-			<img alt="success" src="pictures/error.png">
+			<img alt="error" src="pictures/error.png">
 			<form action="home.do" class="horizontal-center">
 			<input type="submit" value="Home">
 			</form>
@@ -53,7 +53,7 @@
 
 <c:if test="${createdFlag}">
 <c:choose>
-<c:when test="${wasFilmCreated = true}">
+<c:when test="${wasFilmCreated}">
 <div class="row vertical-center-element">
     <div class="">
     </div>
@@ -94,7 +94,7 @@
 
 <c:if test="${editedFlag}">
 <c:choose>
-<c:when test="${wasFilmEdited = true}">
+<c:when test="${wasFilmEdited}">
 <div class="row vertical-center-element">
     <div class="">
     </div>

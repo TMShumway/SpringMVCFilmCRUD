@@ -184,8 +184,15 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			stmt.setInt(1, film.getId());
 			int uc = stmt.executeUpdate();
 			if (uc == 1) {
-				conn.commit();
-				return true;
+				Film test = null;
+				test = findFilmById(film.getId());
+				if(test == null) {
+					conn.commit();
+					return true;
+				} else if (test != null){
+					conn.rollback();
+					return false;
+				}
 			} else {
 				return false;
 			}

@@ -20,6 +20,8 @@
 		<input type="text" name="title"><br>
 		<label id="label-stack" for="filmDescription">Description: </label>
 		<input type="text" name="description"><br>
+		<label id="label-stack" for="filmYear">Year: </label>
+		<input type="text" name="year"><br>
 		<label id="label-stack" for="filmLanguage">Language</label>
 		<select id="label-stack" name="languageId">
 			<option value=1>English</option>
@@ -28,6 +30,22 @@
 			<option value=4>Mandarin</option>
 			<option value=5>French</option>
 			<option value=6>German</option>
+		</select><br>
+		<label for="filmRentalDuration">Rental Duration: </label>
+		<input type="text" name="rental_duration"><br>
+		<label for="filmRentalRate">Rental Rate: </label>
+		<input type="text" name="rentalRate"><br>
+		<label for="filmLength">Film Length: </label>
+		<input type="text" name="length"><br>
+		<label for="filmReplacementCost">Film Replacement Cost: </label>
+		<input type="text" name="replacementCost"><br>
+		<label for="filmRating">Film Rating: </label>
+		<select name="rating">
+			<option value="G">G</option>
+			<option value="PG">PG</option>
+			<option value="PG13">PG13</option>
+			<option value="R">R</option>
+			<option value="NC17">NC17</option>
 		</select><br>
 		<input type="submit" value="Submit">
 	</form>
