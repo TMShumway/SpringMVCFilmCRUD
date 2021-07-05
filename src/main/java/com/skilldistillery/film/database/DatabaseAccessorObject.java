@@ -189,17 +189,13 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, film.getId());
 			int uc = stmt.executeUpdate();
-			if (uc == 1) {
+			if (uc == 1) {				
 				Film test = null;
-				test = findFilmById(film.getId());
-				if(test == null) {
-					conn.commit();
-					return true;
-				} else if (test != null){
-					conn.rollback();
-					return false;
-				}
+				test = findFilmById(film.getId());								
+				conn.commit();
+				return true;
 			} else {
+				conn.rollback();
 				return false;
 			}
 		} catch (SQLException sqle) {
@@ -235,9 +231,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			st.setString(10, film.getSpecialFeatures());
 			st.setInt(11, film.getId());
 			int uc = st.executeUpdate();
-			System.out.println(uc);
-//			if (uc == 1) {
-//			}
 			conn.commit();
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
