@@ -1,7 +1,7 @@
 # Spring MVC Film C.R.U.D.
 
 ## Overview
-This console application is used to pull information from a not-real mad libs generated database. It contains Customer Data (such as address, names, creation dates, country), Business data (rental store ID's, staff, movie rentals, payments), and films(titles, film categories, actors, languages, inventory). While the database contains all this information, this console application only allows the viewing of movies and their actors, as well as the creation and insertion of user-generated movies. </br>
+This dynamic web application is used to pull information from a not-real mad libs generated database. It contains Customer Data (such as address, names, creation dates, country), Business data (rental store ID's, staff, movie rentals, payments), and films(titles, film categories, actors, languages, inventory). While the database contains all this information, this console application only allows the viewing of movies and their actors, as well as the creation and insertion of user-generated movies. </br>
 
 
 <p float="left">
