@@ -12,6 +12,9 @@ This dynamic web application is used to pull information from a not-real mad lib
 <img src="src/main/webapp/pictures/spring-logo.png" alt = "Spring MVC" width="260" height="70" style="margin-right: 25px" align="center"/>
 </p>
 
+### How To Run
+
+This project runs using a pre-supplied relational database: sdvid. Running this project on your own may not be feasible without access to an identical copy and setup of this database, provided by Skill Distillery. Gradle was used for project management and to handle the dependencies, which are located in the build.gradle file. Java was used in order to take advantage of the JDBC API as well as the JSTL library. The Spring Framework will be required to run as well, as Spring specific features are used. 
 
 ### Technologies Used
 * [Java](https://en.wikipedia.org/wiki/Java_)</br>
