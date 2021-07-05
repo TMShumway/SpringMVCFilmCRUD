@@ -13,7 +13,7 @@
     <div class="">
     </div>
     <div>
-    <div class="tab text-center">
+    <div class="row table-css">
 	<h4>Create Film</h4>
 	<form action="createFilm.do" method="post">
 		<label id="label-stack" for="filmTitle">Film Title: </label>
