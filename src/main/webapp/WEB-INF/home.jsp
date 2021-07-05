@@ -8,31 +8,30 @@
 <link rel="stylesheet" href="CSS/style.css">
 <title>Insert title here</title>
 </head>
-<body>
-
-<h1>Film Site</h1>	
-<div class="row">
-<div class="col-md-4">
-</div>
-<div class="col-md-4 box-card-container">
+<body>	
+	<div class="row vertical-center-element">
+    <div class="">
+    </div>
+    <div>
+    <div class="tab text-center">
 	<form action="filmDetails.do" method="get">
-		<label for="searchByFilmId">Search by film ID:</label> 
-		<input type="text" name="filmId">
+		<label for="searchByFilmId"></label> 
+		<input type="text" name="filmId" placeholder="Search by ID">
 		<input type="submit" value="Submit">
 	</form><br>
 	<form action="filmDetails.do" method="get">
-		<label for="searchByKeyword">Search by Keyword:</label> 
-		<input type="text" name="searchByKeyword">
+		<label for="searchByKeyword"></label> 
+		<input type="text" name="searchByKeyword" placeholder="Search by Keyword">
 		<input type="submit" value="Submit">
 	</form><br>
 	<form action="createFilmForm.do">
 	<input type="submit" value="Create Film">
 	</form>
-</div>
-<div class="col-md-4">
-</div>
-</div>
-	
+    </div>
+    </div>
+    <div class="">
+    </div>
+    </div>
 
 </body>
 </html>

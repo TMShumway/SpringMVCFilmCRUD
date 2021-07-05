@@ -9,13 +9,19 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="row vertical-center-element">
+    <div class="">
+    </div>
+    <div>
+    <div class="tab text-center">
+	<h4>Create Film</h4>
 	<form action="createFilm.do" method="post">
-		<label for="filmTitle">Film Title: </label>
+		<label id="label-stack" for="filmTitle">Film Title: </label>
 		<input type="text" name="title"><br>
-		<label for="filmDescription">Description: </label>
+		<label id="label-stack" for="filmDescription">Description: </label>
 		<input type="text" name="description"><br>
-		<label for="filmLanguage">Language</label>
-		<select name="languageId">
+		<label id="label-stack" for="filmLanguage">Language</label>
+		<select id="label-stack" name="languageId">
 			<option value=1>English</option>
 			<option value=2>Italian</option>
 			<option value=3>Japanese</option>
@@ -25,5 +31,10 @@
 		</select><br>
 		<input type="submit" value="Submit">
 	</form>
+</div>
+    </div>
+    <div class="">
+    </div>
+    </div>
 </body>
 </html>

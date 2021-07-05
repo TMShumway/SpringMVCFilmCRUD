@@ -14,7 +14,19 @@
 <body>
 	<c:choose>
 		<c:when test="${not empty films[0].id}">
-		<div class="box-card-container">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+    <div class="col-md-4">
+    </div>
+		
+		<div class="row table-css col-md-4">
 			<table>
 				<tr>
 					<th>ID</th>
@@ -57,9 +69,17 @@
 		</c:when>
 		<c:otherwise>
 			<h3>Film not found</h3>
-			<a href="home.do">Home</a>
+			<form action="home.do" class="horizontal-center">
+			<input type="submit" value="Home">
+			</form>
 		</c:otherwise>
 	</c:choose>
 	
+	<div class=col-md-4>
+	</div>
+
+
+
+
 </body>
 </html>

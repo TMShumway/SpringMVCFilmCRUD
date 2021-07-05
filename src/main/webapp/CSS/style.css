@@ -8,27 +8,47 @@ table, th, td {
 }
 
 body {
-	margin: 5px;
-	background-color: LightCyan;
+	background: url("../pictures/movietheme.gif");
+	background-color: white;
+	background-size: cover;
+	margin: 30px;
 }
 
-table {
-	width: 100%;
-}
 
 .horizontal-center {
 	text-align: center;
 	margin: 5px;
+	
 }
 
-.box-card-container {
-	background-color: CornflowerBlue;
-	display: inline-block;
-	padding: 10px;
-	margin: 5px;
-	border-radius: 20px;
-	border: solid 1px CornflowerBlue;
-	box-shadow: 10px 5px 5px grey;
+div.tab {
+  padding: 50px;
+  height: 250px;
+  width: 30%;
+  margin: auto;
+  background-color: #ffe34e;
+  box-shadow: 40px 40px #cd04df, -40px -40px #42a8ff;
+  
 }
+
+.vertical-center-element {
+	padding-top: 20%;
+}
+
+div.tab img {
+	width: 50px;
+}
+
+.table-css {
+  width: 80%;
+  background-color:#ffe34e;
+  box-shadow: 40px 40px #cd04df, -40px -40px #42a8ff;
+  margin:auto;
+  padding:40px;
+  
+}
+
+
+
 
 
