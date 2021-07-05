@@ -28,18 +28,18 @@ This dynamic web application is used to pull information from a not-real mad lib
 * How to manipulate data with MySQL using using the JDBC API.
 * Better Object Oriented practices in regards to file structure and encapsulation.
 * MVC design pattern using Spring.
-  * Model
-  * View
-  * Controller
+    * Model
+    * View
+    * Controller
 * Spring Framework Features
-  * Beans
-  * Command Objects
-  * Pojos
-  * Annotations
+    * Beans
+    * Command Objects
+    * Pojos
+    * Annotations
 * POST -> Redirect -> GET
 
 ### Usage
-You can search a movie up by its Id or search a list of movies using a keyword. The menu is easy to follow along by pressing 1, 2, or 3.
+You can search a movie up by its Id or search a list of movies using a keyword. Once a film is displayed, you can either choose to delete or edit the film. In the home menu there is an option to create a film.
 
 ### Further thoughts
 As this project was our first time using Spring the learning experience was quite interesting. The ability for Spring to handle all
