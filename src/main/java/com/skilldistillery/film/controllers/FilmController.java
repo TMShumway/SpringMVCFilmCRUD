@@ -66,10 +66,9 @@ public class FilmController {
 	
 	@RequestMapping(path = "createFilm.do", method = RequestMethod.POST)
 	public ModelAndView createFilm(Film film, RedirectAttributes redir) {
-		List<Actor> actors = new ArrayList<>();
-		actors.add(filmDAO.createActor(new Actor(0, "Hugh", "Hemsworth")));
-		actors.add(filmDAO.createActor(new Actor(0, "M. Film", "Tesatalot")));
-		film.setActorList(actors);
+//		List<Actor> actors = new ArrayList<>();
+//		actors.add(filmDAO.createActor(new Actor(0, "Hugh", "Hemsworth")));
+//		actors.add(filmDAO.createActor(new Actor(0, "M. Film", "Tesatalot")));
 		Film filmCreated = filmDAO.createFilm(film);
 		boolean filmCreatedBool = filmCreated.getId() > 0 ? true : false;
 		ModelAndView mv = new ModelAndView();
