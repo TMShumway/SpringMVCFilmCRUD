@@ -31,8 +31,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		List<Actor> actorList = findActorsByFilmId(filmId);
 		try {
 			Connection conn = DriverManager.getConnection(URL, user, pass);
-			String sql = "SELECT *\n" + "FROM film\n" + "JOIN language\n" + "ON film.language_id = language.id\n"
-					+ "WHERE film.id = ?";
+			String sql = "select * from film join film_category on film.id = film_category.film_id " +
+					     "join category on film_category.category_id = category.id join language " +
+					     "on film.language_id = language.id where film.id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, filmId);
 			ResultSet rs = stmt.executeQuery();
@@ -49,10 +50,13 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				String rating = rs.getString("film.rating");
 				String features = rs.getString("film.special_features");
 				String name = rs.getString("language.name");
+				String category = rs.getString("category.name");
 
 				film = new Film(filmIds, title, desc, releaseYear, langId, rentDur, rate, length, repCost, rating,
 						features, actorList, name);
+				film.setFilmCategory(category);
 			}
+				
 			rs.close();
 			stmt.close();
 			conn.close();
