@@ -41,7 +41,6 @@
 						</c:forEach>
 						</td>
 						<td>${s.specialFeatures}</td>
-						<td>${s.filmCategory}</td>
 						<td>
 							<form action="deleteFilmDetails.do" method="post">
 							<input type="submit" value="Delete">
@@ -52,6 +51,7 @@
 							<input type="hidden" name="id" value="${s.id}">
 							</form><br>
 						</td>
+						<td>${s.filmCategory}</td>
 						
 					</tr>
 				</c:forEach>
