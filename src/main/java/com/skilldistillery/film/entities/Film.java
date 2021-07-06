@@ -1,7 +1,6 @@
 package com.skilldistillery.film.entities;
 
 import java.util.List;
-import java.util.Scanner;
 
 public class Film {
 	private int id;
@@ -17,6 +16,25 @@ public class Film {
 	private String specialFeatures;
 	private String lang;
 	private List<Actor> actorList;
+	private String filmCategory;
+	public String getFilmCategory() {
+		return filmCategory;
+	}
+
+	public void setFilmCategory(String filmCategory) {
+		this.filmCategory = filmCategory;
+	}
+
+	public int getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	private int categoryId;
+	
 	
 	public Film() {}
 
