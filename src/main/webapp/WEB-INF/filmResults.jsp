@@ -28,6 +28,7 @@
 					<th>Actors</th>
 					<th>Special Features</th>
 					<th>Edit or Delete</th>
+					<th>Category</th>
 				</tr>
 				<c:forEach var="s" items="${films}">
 					<tr>
@@ -40,6 +41,7 @@
 						</c:forEach>
 						</td>
 						<td>${s.specialFeatures}</td>
+						<td>${s.filmCategory}</td>
 						<td>
 							<form action="deleteFilmDetails.do" method="post">
 							<input type="submit" value="Delete">
