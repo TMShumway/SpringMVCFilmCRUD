@@ -9,6 +9,13 @@
 <title>Film Database Home</title>
 </head>
 <body>	
+<audio autoplay loop>
+
+
+  <source src="music/background-music.mp3" type="audio/mpeg">
+
+
+</audio>
 	<div class="row vertical-center-element">
     <div class="">
     </div>
