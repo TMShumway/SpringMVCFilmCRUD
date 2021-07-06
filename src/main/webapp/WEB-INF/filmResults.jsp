@@ -27,8 +27,8 @@
 					<th>Description</th>
 					<th>Actors</th>
 					<th>Special Features</th>
-					<th>Edit or Delete</th>
 					<th>Category</th>
+					<th>Edit or Delete</th>
 				</tr>
 				<c:forEach var="s" items="${films}">
 					<tr>
